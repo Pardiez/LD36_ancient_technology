@@ -1,36 +1,35 @@
 [gd_scene load_steps=3 format=1]
 
-[ext_resource path="res://scripts/Ship.gd" type="Script" id=1]
-[ext_resource path="res://assets/graphics/player.atex" type="Texture" id=2]
+[ext_resource path="res://Ship.tscn" type="PackedScene" id=1]
+[ext_resource path="res://ImpulseArea.tscn" type="PackedScene" id=2]
 
 [node name="RootNode" type="Node2D"]
 
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
+[node name="RigidBody2D 2" parent="." instance=ExtResource( 1 )]
 
-transform/pos = Vector2( 133.285, 485.979 )
-input/pickable = false
-collision/layers = 1
-collision/mask = 1
-mode = 0
-mass = 0.102041
-friction = 1.0
-bounce = 0.0
-gravity_scale = 1.0
-custom_integrator = false
-continuous_cd = 0
-contacts_reported = 0
-contact_monitor = false
-sleeping = false
-can_sleep = true
-velocity/linear = Vector2( 0, 0 )
-velocity/angular = 0.0
-damp_override/linear = -1.0
-damp_override/angular = -1.0
-script/script = ExtResource( 1 )
+transform/pos = Vector2( 892.577, 515.943 )
 
-[node name="Sprite" type="Sprite" parent="RigidBody2D"]
+[node name="ImpulseArea 2" parent="." instance=ExtResource( 2 )]
 
-texture = ExtResource( 2 )
-__meta__ = { "_edit_lock_":true }
+transform/pos = Vector2( 886.542, 404.716 )
+IMPULSE_THROTTLE = 3
+
+[node name="ImpulseArea3" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 839.105, 246.435 )
+transform/rot = 70.0
+IMPULSE_THROTTLE = 6
+
+[node name="ImpulseArea4" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 752.204, 143.304 )
+transform/rot = 90.0
+IMPULSE_THROTTLE = 10
+
+[node name="ImpulseArea5" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 616.928, 30.9966 )
+transform/rot = 150.0
+IMPULSE_THROTTLE = 15
 
 
