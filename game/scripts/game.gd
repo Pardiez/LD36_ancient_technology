@@ -15,4 +15,4 @@ func _ship_enter_station():
 func _ship_body_enter(body):
 	if body.get_name() != 'ship':
 		return
-	get_node("UICanvas/Title").fade_in()
+	get_node("UICanvas/ZoneTitle").fade_in()
