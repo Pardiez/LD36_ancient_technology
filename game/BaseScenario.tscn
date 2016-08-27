@@ -5,16 +5,30 @@
 
 [node name="RootNode" type="Node2D"]
 
-[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
 
-transform/pos = Vector2( 471.626, 272.723 )
+transform/pos = Vector2( 133.285, 485.979 )
 input/pickable = false
 collision/layers = 1
 collision/mask = 1
-collision/margin = 0.08
+mode = 0
+mass = 0.102041
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
 script/script = ExtResource( 1 )
 
-[node name="Sprite" type="Sprite" parent="KinematicBody2D"]
+[node name="Sprite" type="Sprite" parent="RigidBody2D"]
 
 texture = ExtResource( 2 )
 __meta__ = { "_edit_lock_":true }
