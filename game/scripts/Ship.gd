@@ -1,8 +1,8 @@
 extends RigidBody2D
 
 const ROTATE_SPEED = 3
-const THROTTLE = 0.3
-const VELOCITY_LIMIT = 100
+export var  THROTTLE = 50
+export var VELOCITY_LIMIT = 100
 
 func _ready():
 	set_fixed_process(true)
@@ -19,9 +19,9 @@ func _fixed_process(delta):
 	set_rot(rot)
 		
 	if (Input.is_action_pressed("ui_up") && get_linear_velocity().y > -VELOCITY_LIMIT):
-		impulse(THROTTLE, get_rot())
+		impulse(THROTTLE*delta, get_rot())
 	if (Input.is_action_pressed("ui_down") && get_linear_velocity().y < VELOCITY_LIMIT):
-		impulse(-THROTTLE, get_rot())
+		impulse(-THROTTLE*delta, get_rot())
 	
 func impulse(throttle, rot):
 	apply_impulse(Vector2(0,0), Vector2 (0, -throttle).rotated(rot))

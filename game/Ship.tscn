@@ -32,6 +32,8 @@ velocity/angular = 0.0
 damp_override/linear = -1.0
 damp_override/angular = -1.0
 script/script = ExtResource( 1 )
+THROTTLE = 50
+VELOCITY_LIMIT = 100
 
 [node name="Sprite" type="Sprite" parent="."]
 
@@ -50,7 +52,7 @@ trigger = false
 anchor_mode = 1
 rotating = false
 current = true
-zoom = Vector2( 2, 2 )
+zoom = Vector2( 1.2, 1.2 )
 limit/left = -10000000
 limit/top = -10000000
 limit/right = 10000000

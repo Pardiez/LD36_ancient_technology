@@ -21,4 +21,5 @@ func _fixed_process(delta):
 	rotate(rotation*delta)
 
 func _send_signal(body):
-	emit_signal("enterStation")
+	if body.get_name() == 'ship':
+		emit_signal("enterStation")
