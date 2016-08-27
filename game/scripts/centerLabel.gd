@@ -1,10 +1,12 @@
-
 extends Label
 
+var animation
 
 func _ready():
-	pass
+	animation = get_node("AnimationPlayer")
 
 func fade_in():
-	get_node("AnimationPlayer").play("show")
-
+	animation.play("show")
+	
+func fade_out():
+	animation.play("hide")
