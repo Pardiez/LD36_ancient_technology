@@ -21,4 +21,10 @@ func _next_message():
 		timer.stop()
 	
 	
-	
+func disable_messages():
+	timer.stop()
+	hide()
+
+func enable_messages():
+	timer.start()
+	show()

@@ -2,6 +2,7 @@ extends Node2D
 
 onready var tween = Tween.new()
 onready var ship = get_node("ship")
+onready var character_story = get_node("UICanvas/CharacterStory")
 var cam 
 const SHOW_MAP_DURATION = 2
 const MAP_ZOOM = 20
@@ -21,9 +22,22 @@ func _ready():
 	var y = get_node("Boundary/CollisionShape2D").get_pos().y
 	
 	get_node("Asteroids").generate(x, y)
+	for station in get_tree().get_nodes_in_group("stations"):
+		station.connect("body_enter",self, "_ship_enter_in_station")
+		station.connect("body_exit",self, "_ship_exit_in_station")
 	
 	set_process_input(true)
-		
+
+func _ship_enter_in_station(body):
+	if body.get_name() != 'ship':
+		return
+	character_story.disable_messages()
+
+func _ship_exit_in_station(body):
+	if body.get_name() != 'ship':
+		return
+	character_story.enable_messages()
+
 func _input(event):
 	if event.is_action_pressed("ui_accept"):
 		if mode == MODE_NORMAL:

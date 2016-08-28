@@ -8,6 +8,7 @@ signal exitStation
 var rotation = 0.1
 
 func _ready():
+	add_to_group("stations")
 	if center_texture != null:
 		get_node("Sprites/centerSprite1").set_texture(center_texture)
 		get_node("Sprites/centerSprite").set_texture(center_texture)
