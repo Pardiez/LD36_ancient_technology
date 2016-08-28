@@ -1,12 +1,14 @@
-extends Label
+extends CanvasLayer
 
-onready var animation = get_node("AnimationPlayer")
-
-func _ready():
-	pass
+onready var label = get_node("Landmark/AnimationPlayer")
+onready var spin_opacity = get_node("Spin/ShowAnimation")
+onready var spin_animation = get_node("Spin/SpinAnimation")
 	
 func fade_in():
-	animation.play("show")
-	
+	label.play("show")
+	spin_opacity.play("show")
+	spin_animation.play("spin")
+		
 func fade_out():
-	animation.play("hide")
+	label.play("hide")
+	spin_opacity.play("hide")
