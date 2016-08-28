@@ -36,8 +36,13 @@ func impulse(throttle, rot):
 		apply_impulse(Vector2(0,0), Vector2(0, -throttle).rotated(rot))
 
 func set_point(pos):
+	arrow.set_opacity(1)
 	arrow_pointer = pos
 	
 func update_arrow():
+	if(arrow_pointer == null):
+		arrow.set_opacity(0)
+		return
+		
 	arrow.look_at(arrow_pointer)	
 	arrow.set_rotd(arrow.get_rotd() + 180)
