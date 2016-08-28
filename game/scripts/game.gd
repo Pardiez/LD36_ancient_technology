@@ -13,12 +13,17 @@ var mode = MODE_NORMAL
 
 func _ready():
 	get_node("Boundary").connect("body_enter",self,"_ship_body_enter")
-	
+		
 	cam = ship.get_node("Camera2D")
 	add_child(tween)
 	
+	var x = get_node("Boundary/CollisionShape2D").get_pos().x
+	var y = get_node("Boundary/CollisionShape2D").get_pos().y
+	
+	get_node("Asteroids").generate(x, y)
+	
 	set_process_input(true)
-
+		
 func _input(event):
 	if event.is_action_pressed("ui_accept"):
 		if mode == MODE_NORMAL:
