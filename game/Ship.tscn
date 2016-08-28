@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://scripts/Ship.gd" type="Script" id=1]
 [ext_resource path="res://assets/graphics/player.atex" type="Texture" id=2]
+[ext_resource path="res://scripts/cam.gd" type="Script" id=3]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
@@ -32,8 +33,6 @@ velocity/angular = 0.0
 damp_override/linear = -1.0
 damp_override/angular = -1.0
 script/script = ExtResource( 1 )
-THROTTLE = 50
-VELOCITY_LIMIT = 100
 
 [node name="Sprite" type="Sprite" parent="."]
 
@@ -65,5 +64,7 @@ drag_margin/left = 0.2
 drag_margin/top = 0.2
 drag_margin/right = 0.2
 drag_margin/bottom = 0.2
+script/script = ExtResource( 3 )
+zoom_scale = 2
 
 

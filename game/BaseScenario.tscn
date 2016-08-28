@@ -256,7 +256,8 @@ stream/buffering_ms = 500
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
-layer = -1
+editor/display_folded = true
+layer = -2
 offset = Vector2( 0, 0 )
 rotation = 0.0
 scale = Vector2( 1, 1 )
