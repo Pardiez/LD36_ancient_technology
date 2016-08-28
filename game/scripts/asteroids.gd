@@ -20,5 +20,6 @@ func add_asteroid():
 	var texture = textures[rand_range(0, randi() % textures.size()+1)]
 	s.set_texture(texture)
 	var pos = Vector2(rand_range(0,max_x), rand_range(0,max_y))
+	s.set_script(load("res://scripts/random_asteroid.gd"))
 	s.set_pos(pos)
 	add_child(s)
