@@ -20,8 +20,10 @@ func _ready():
 	
 	var x = get_node("Boundary/CollisionShape2D").get_pos().x
 	var y = get_node("Boundary/CollisionShape2D").get_pos().y
-	
 	get_node("Asteroids").generate(x, y)
+	get_node("PropShips").generate(x, y)
+	
+	
 	for station in get_tree().get_nodes_in_group("stations"):
 		station.connect("body_enter",self, "_ship_enter_in_station")
 		station.connect("body_exit",self, "_ship_exit_in_station")

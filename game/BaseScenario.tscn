@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=1]
+[gd_scene load_steps=18 format=1]
 
 [ext_resource path="res://scripts/game.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/Teko/Teko-SemiBold.ttf" type="DynamicFontData" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://assets/graphics/star_02.tex" type="Texture" id=7]
 [ext_resource path="res://props/LandmarkRoot.tscn" type="PackedScene" id=8]
 [ext_resource path="res://props/asteroid1.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scripts/prop_ships.gd" type="Script" id=10]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -398,5 +399,9 @@ transform/pos = Vector2( 63008, 8480 )
 transform/pos = Vector2( 25632, 49952 )
 
 [node name="Asteroids" parent="." instance=ExtResource( 9 )]
+
+[node name="PropShips" type="Node2D" parent="."]
+
+script/script = ExtResource( 10 )
 
 
