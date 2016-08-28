@@ -22,6 +22,8 @@ func _ready():
 	
 	ship.set_point(get_node("Station").get_pos())
 	set_process_input(true)
+	
+	
 
 func _input(event):
 	if event.is_action_pressed("ui_accept"):
@@ -34,9 +36,11 @@ func _input(event):
 
 func _ship_enter_station():
 	get_node("UICanvas/Landmark").fade_in()
+	get_node("UICanvas/Spin").fade_in()
 
 func _ship_exit_station():
 	get_node("UICanvas/Landmark").fade_out()
+	get_node("UICanvas/Spin").fade_out()
 
 func _ship_body_enter(body):
 	if body.get_name() != 'ship':
