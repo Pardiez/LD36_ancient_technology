@@ -19,6 +19,8 @@ func _ready():
 	
 	cam = ship.get_node("Camera2D")
 	add_child(tween)
+	
+	ship.set_point(get_node("Station").get_pos())
 	set_process_input(true)
 
 func _input(event):

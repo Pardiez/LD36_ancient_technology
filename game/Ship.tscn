@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=6 format=1]
 
 [ext_resource path="res://scripts/Ship.gd" type="Script" id=1]
 [ext_resource path="res://assets/graphics/player.atex" type="Texture" id=2]
 [ext_resource path="res://scripts/cam.gd" type="Script" id=3]
+[ext_resource path="res://assets/graphics/green_arrow_1.tex" type="Texture" id=4]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
@@ -66,5 +67,11 @@ drag_margin/right = 0.2
 drag_margin/bottom = 0.2
 script/script = ExtResource( 3 )
 zoom_scale = 2
+
+[node name="arrow" type="Sprite" parent="."]
+
+transform/pos = Vector2( -0.103355, 0.109291 )
+texture = ExtResource( 4 )
+offset = Vector2( 0.269478, -109.259 )
 
 
