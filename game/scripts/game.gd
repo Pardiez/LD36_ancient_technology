@@ -4,7 +4,9 @@ func _ready():
 	get_node("Station").connect("exitStation",self,"_ship_exit_station")
 	get_node("Station").connect("enterStation",self,"_ship_enter_station")
 	get_node("Boundary").connect("body_enter",self,"_ship_body_enter")
-
+	
+	get_node("ship").set_point(get_node("Station").get_pos())
+	
 func _ship_enter_station():
 	get_node("UICanvas/Landmark").fade_in()
 
