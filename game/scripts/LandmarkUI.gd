@@ -1,14 +1,15 @@
 extends CanvasLayer
 
-onready var label = get_node("Landmark/AnimationPlayer")
+onready var label = get_node("Scanning/ScanningPlayer")
 onready var spin_opacity = get_node("Spin/ShowAnimation")
 onready var spin_animation = get_node("Spin/SpinAnimation")
+onready var text = get_node("Text/AnimationPlayer")
 	
 func fade_in():
-	label.play("show")
+	label.play("scanning")
 	spin_opacity.play("show")
 	spin_animation.play("spin")
-		
+	text.play("show")
+	
 func fade_out():
-	label.play("hide")
-	spin_opacity.play("hide")
+	text.play("hide")
