@@ -396,7 +396,7 @@ transform/pos = Vector2( 63008, 8480 )
 
 [node name="SpaceStation3" parent="." instance=ExtResource( 8 )]
 
-transform/pos = Vector2( 25632, 49952 )
+transform/pos = Vector2( 14608.9, 12635.4 )
 
 [node name="Asteroids" parent="." instance=ExtResource( 9 )]
 

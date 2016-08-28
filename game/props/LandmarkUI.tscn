@@ -141,7 +141,6 @@ autoplay = ""
 
 visibility/opacity = 0.0
 transform/pos = Vector2( 258.483, 28.4634 )
-transform/scale = Vector2( 1, 1 )
 texture = ExtResource( 3 )
 offset = Vector2( 0.141357, 7.97571 )
 

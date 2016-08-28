@@ -12,6 +12,22 @@ const MODE_MAP = 0
 const MODE_NORMAL = 1
 var mode = MODE_NORMAL
 
+onready var scripts = {
+	"intro" : {
+			"text": ["Tantos años viajando...", "En los logs de esta estacion indica que la tripulacion abandono hace siglos..."],		
+			"next": get_node("SpaceStation2").get_pos()
+	},
+	"body" : {
+			"text": ["Estos aliens tenian la formula de la eterna juventud"],	
+			"next": get_node("SpaceStation3").get_pos()
+	},
+	"theend" : {
+			"text": ["Vaya, aqui se acaba todo"],	
+	} 
+}
+
+var history = {}
+
 func _ready():
 	get_node("Boundary").connect("body_enter",self,"_ship_body_enter")
 		
@@ -22,7 +38,6 @@ func _ready():
 	var y = get_node("Boundary/CollisionShape2D").get_pos().y
 	get_node("Asteroids").generate(x, y)
 	get_node("PropShips").generate(x, y)
-	
 	
 	for station in get_tree().get_nodes_in_group("stations"):
 		station.connect("body_enter",self, "_ship_enter_in_station")
