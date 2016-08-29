@@ -32,3 +32,4 @@ func _ship_in(body):
 	if body.get_name() != 'ship':
 		return
 	emit_signal("enterStation")
+	get_node("EnterAnimationPlayer").play("enter")
