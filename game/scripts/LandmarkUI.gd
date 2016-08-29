@@ -7,6 +7,7 @@ onready var text = get_node("Text/AnimationPlayer")
 signal landmark_visited
 	
 var selected_script
+var visited = false
 
 func set_script(script_map):
 	var keys = script_map.keys()
@@ -14,10 +15,15 @@ func set_script(script_map):
 	get_node("Text").set_text(script_map[selected_script])
 
 func fade_in():
-	label.play("scanning")
-	spin_opacity.play("show")
-	spin_animation.play("spin")
-	text.play("show")
+	if(!visited):
+		label.play("scanning")
+		spin_opacity.play("show")
+		spin_animation.play("spin")
+		text.play("show")
+	else :
+		text.play("show_fast")
+		
+	visited = true
 	emit_signal("landmark_visited", selected_script)
 	
 func fade_out():
