@@ -12,7 +12,7 @@ const MODE_MAP = 0
 const MODE_NORMAL = 1
 var mode = MODE_NORMAL
 
-onready var scripts = {
+onready var text = {
 	"SpaceStation1" : { "LM1" : tr("LM1") },
 	"SpaceStation2" : { "LM2" : tr("LM2") }
 }
@@ -25,12 +25,14 @@ func _ready():
 	cam = ship.get_node("Camera2D")
 	add_child(tween)
 	
-	_set_scripts()
+	_set_texts()
 	_add_space_crap()
 	_handle_ship_messages()
 	
 	for lm in get_tree().get_nodes_in_group("landmarks"):
 		lm.connect("landmark_visited",self, "_landmark_visited")
+	
+	get_node("ImpulseArea").set_direction(get_node("SpaceStation2").get_pos())
 	
 	set_process_input(true)
 
@@ -40,9 +42,9 @@ func _landmark_visited(code):
 	if(code == "LM2"):
 		ship.hide_radar()
 	
-func _set_scripts():
-	get_node("SpaceStation1").set_script(scripts['SpaceStation1'])
-	get_node("SpaceStation2").set_script(scripts['SpaceStation2'])
+func _set_texts():
+	get_node("SpaceStation1").set_text(text['SpaceStation1'])
+	get_node("SpaceStation2").set_text(text['SpaceStation2'])
 	
 func _handle_ship_messages():
 	for station in get_tree().get_nodes_in_group("stations"):

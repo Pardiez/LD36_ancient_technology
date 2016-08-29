@@ -74,4 +74,11 @@ transform/pos = Vector2( -0.103355, 0.109291 )
 texture = ExtResource( 4 )
 offset = Vector2( 0.269478, -109.259 )
 
+[node name="BumpTimer" type="Timer" parent="."]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = false
+
 

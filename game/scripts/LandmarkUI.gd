@@ -9,7 +9,7 @@ signal landmark_visited
 var selected_script
 var visited = false
 
-func set_script(script_map):
+func set_text(script_map):
 	var keys = script_map.keys()
 	selected_script = keys[(randi() % keys.size())]
 	get_node("Text").set_text(script_map[selected_script])

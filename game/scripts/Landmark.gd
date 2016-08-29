@@ -12,8 +12,8 @@ func _ready():
 				
 	set_process_input(true)
 
-func set_script(script_map):
-	ui.set_script(script_map)
+func set_text(text_map):
+	ui.set_text(text_map)
 
 func _landmark_visited(text_code):
 	emit_signal("landmark_visited", text_code)

@@ -1,17 +1,18 @@
-[gd_scene load_steps=3 format=1]
+[gd_scene load_steps=4 format=1]
 
 [ext_resource path="res://scripts/ImpulseArea.gd" type="Script" id=1]
+[ext_resource path="res://assets/graphics/sputnik.tex" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 10, 10 )
+extents = Vector2( 22.7058, 32.5939 )
 
 [node name="ImpulseArea" type="Area2D"]
 
-transform/pos = Vector2( 303, 287 )
+transform/pos = Vector2( 537, 431.749 )
 transform/rot = 30.0
-transform/scale = Vector2( 1, 1 )
+transform/scale = Vector2( 11.6419, 10.9598 )
 input/pickable = true
 shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
@@ -21,6 +22,7 @@ gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
 script/script = ExtResource( 1 )
+IMPULSE_THROTTLE = 5
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 
@@ -45,5 +47,9 @@ shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
 __meta__ = { "_edit_lock_":true }
+
+[node name="Sprite" type="Sprite" parent="."]
+
+texture = ExtResource( 2 )
 
 

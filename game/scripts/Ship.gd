@@ -5,8 +5,11 @@ var THROTTLE = 100
 const SPEED_LIMIT = 1000
 var arrow_pointer
 onready var arrow = get_node('arrow')
+onready var bump_timer = get_node("BumpTimer")
+var bumped = false
 
 func _ready():
+	bump_timer.connect("timeout", self, "_disable_bump")
 	set_fixed_process(true)
 
 func _fixed_process(delta):
@@ -15,6 +18,9 @@ func _fixed_process(delta):
 	_update_arrow()
 
 func _input_throttle(delta):
+	if(bumped == true):
+		return
+	
 	if (Input.is_action_pressed("ui_up")):
 		_impulse(THROTTLE*delta, get_rot())
 	if (Input.is_action_pressed("ui_down")):
@@ -33,6 +39,15 @@ func _impulse(throttle, rot):
     	set_linear_velocity(get_linear_velocity().normalized()*(SPEED_LIMIT-1))
 	else:
 		apply_impulse(Vector2(0,0), Vector2(0, -throttle).rotated(rot))
+
+func bump(throttle, rot):
+	bumped = true
+	bump_timer.start()
+	apply_impulse(Vector2(0,0), Vector2(0, -throttle).rotated(rot))
+
+func _disable_bump():
+	bumped = false
+	bump_timer.stop()
 
 func set_radar(pos):
 	arrow.set_opacity(1)
