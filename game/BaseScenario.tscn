@@ -204,7 +204,7 @@ autoplay = ""
 
 [node name="ship" parent="." instance=ExtResource( 4 )]
 
-transform/pos = Vector2( 5133.95, 8610.31 )
+transform/pos = Vector2( 155108, 7700.15 )
 
 [node name="Boundary" type="Area2D" parent="."]
 
@@ -382,7 +382,7 @@ transform/pos = Vector2( 173404, 5967.82 )
 
 [node name="SpaceStation3" parent="." instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 97433.5, 64932.6 )
+transform/pos = Vector2( 130229, 81310.7 )
 
 [node name="SpaceStation4" parent="." instance=ExtResource( 7 )]
 
@@ -407,6 +407,8 @@ transform/pos = Vector2( 8434.06, 8538.18 )
 script/script = ExtResource( 12 )
 
 [node name="Impulses_A" type="Node2D" parent="."]
+
+editor/display_folded = true
 
 [node name="ImpulseArea" parent="Impulses_A" instance=ExtResource( 13 )]
 
@@ -741,6 +743,400 @@ IMPULSE_THROTTLE = 600
 
 transform/pos = Vector2( 169078, 8904.15 )
 transform/rot = -102.152
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="Impulses_B" type="Node2D" parent="."]
+
+[node name="ImpulseArea14" parent="Impulses_B" instance=ExtResource( 13 )]
+
+transform/pos = Vector2( 174075, 8848.88 )
+transform/rot = -177.905
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea16 2" parent="Impulses_B" instance=ExtResource( 13 )]
+
+transform/pos = Vector2( 169828, 18456.1 )
+transform/rot = -177.905
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea163" parent="Impulses_B" instance=ExtResource( 13 )]
+
+transform/pos = Vector2( 156681, 21894.5 )
+transform/rot = -177.905
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea164" parent="Impulses_B" instance=ExtResource( 13 )]
+
+transform/pos = Vector2( 161030, 38176.3 )
+transform/rot = -177.905
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea165" parent="Impulses_B" instance=ExtResource( 13 )]
+
+transform/pos = Vector2( 144141, 39592.1 )
+transform/rot = -177.905
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea166" parent="Impulses_B" instance=ExtResource( 13 )]
+
+transform/pos = Vector2( 148692, 55570.5 )
+transform/rot = -177.905
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea167" parent="Impulses_B" instance=ExtResource( 13 )]
+
+transform/pos = Vector2( 133725, 59919 )
+transform/rot = -177.905
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea15" parent="Impulses_B" instance=ExtResource( 13 )]
+
+transform/pos = Vector2( 167597, 16885.5 )
+transform/rot = -205.089
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea16" parent="Impulses_B" instance=ExtResource( 13 )]
+
+transform/pos = Vector2( 163350, 26492.8 )
+transform/rot = -205.089
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea17" parent="Impulses_B" instance=ExtResource( 13 )]
+
+transform/pos = Vector2( 150203, 29931.2 )
+transform/rot = -205.089
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea18" parent="Impulses_B" instance=ExtResource( 13 )]
+
+transform/pos = Vector2( 154552, 46212.9 )
+transform/rot = -205.089
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea19" parent="Impulses_B" instance=ExtResource( 13 )]
+
+transform/pos = Vector2( 137663, 47628.7 )
+transform/rot = -205.089
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea20" parent="Impulses_B" instance=ExtResource( 13 )]
+
+transform/pos = Vector2( 142214, 63607.1 )
+transform/rot = -205.089
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea21" parent="Impulses_B" instance=ExtResource( 13 )]
+
+transform/pos = Vector2( 127247, 67955.7 )
+transform/rot = -205.089
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea1312" parent="Impulses_B" instance=ExtResource( 13 )]
+
+transform/pos = Vector2( 176634, 7791.74 )
+transform/rot = -190.135
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea1314" parent="Impulses_B" instance=ExtResource( 13 )]
+
+transform/pos = Vector2( 172387, 17399 )
+transform/rot = -190.135
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea1315" parent="Impulses_B" instance=ExtResource( 13 )]
+
+transform/pos = Vector2( 159240, 20837.4 )
+transform/rot = -190.135
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea1316" parent="Impulses_B" instance=ExtResource( 13 )]
+
+transform/pos = Vector2( 163588, 37119.2 )
+transform/rot = -190.135
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea1317" parent="Impulses_B" instance=ExtResource( 13 )]
+
+transform/pos = Vector2( 146700, 38535 )
+transform/rot = -190.135
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea1318" parent="Impulses_B" instance=ExtResource( 13 )]
+
+transform/pos = Vector2( 151251, 54513.4 )
+transform/rot = -190.135
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea1319" parent="Impulses_B" instance=ExtResource( 13 )]
+
+transform/pos = Vector2( 136284, 58861.9 )
+transform/rot = -190.135
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea1313" parent="Impulses_B" instance=ExtResource( 13 )]
+
+transform/pos = Vector2( 170061, 15983.2 )
+transform/rot = -200.435
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea1314 2" parent="Impulses_B" instance=ExtResource( 13 )]
+
+transform/pos = Vector2( 165813, 25590.5 )
+transform/rot = -200.435
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea13143" parent="Impulses_B" instance=ExtResource( 13 )]
+
+transform/pos = Vector2( 152667, 29028.8 )
+transform/rot = -200.435
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea13144" parent="Impulses_B" instance=ExtResource( 13 )]
+
+transform/pos = Vector2( 157015, 45310.6 )
+transform/rot = -200.435
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea13145" parent="Impulses_B" instance=ExtResource( 13 )]
+
+transform/pos = Vector2( 140127, 46726.4 )
+transform/rot = -200.435
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea13146" parent="Impulses_B" instance=ExtResource( 13 )]
+
+transform/pos = Vector2( 144677, 62704.8 )
+transform/rot = -200.435
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea13147" parent="Impulses_B" instance=ExtResource( 13 )]
+
+transform/pos = Vector2( 129710, 67053.4 )
+transform/rot = -200.435
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea1214" parent="Impulses_B" instance=ExtResource( 13 )]
+
+transform/pos = Vector2( 178534, 10463.2 )
+transform/rot = -207.451
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea1216" parent="Impulses_B" instance=ExtResource( 13 )]
+
+transform/pos = Vector2( 174287, 20070.4 )
+transform/rot = -207.451
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea1217" parent="Impulses_B" instance=ExtResource( 13 )]
+
+transform/pos = Vector2( 161140, 23508.8 )
+transform/rot = -207.451
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea1218" parent="Impulses_B" instance=ExtResource( 13 )]
+
+transform/pos = Vector2( 165489, 39790.6 )
+transform/rot = -207.451
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea1219" parent="Impulses_B" instance=ExtResource( 13 )]
+
+transform/pos = Vector2( 148600, 41206.4 )
+transform/rot = -207.451
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea1220" parent="Impulses_B" instance=ExtResource( 13 )]
+
+transform/pos = Vector2( 153151, 57184.8 )
+transform/rot = -207.451
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea1221" parent="Impulses_B" instance=ExtResource( 13 )]
+
+transform/pos = Vector2( 138184, 61533.4 )
+transform/rot = -207.451
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea1215" parent="Impulses_B" instance=ExtResource( 13 )]
+
+transform/pos = Vector2( 174409, 19927.3 )
+transform/rot = -207.946
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea1216 2" parent="Impulses_B" instance=ExtResource( 13 )]
+
+transform/pos = Vector2( 170162, 29534.5 )
+transform/rot = -207.946
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea12163" parent="Impulses_B" instance=ExtResource( 13 )]
+
+transform/pos = Vector2( 157015, 32972.9 )
+transform/rot = -207.946
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea12164" parent="Impulses_B" instance=ExtResource( 13 )]
+
+transform/pos = Vector2( 161364, 49254.7 )
+transform/rot = -207.946
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea12165" parent="Impulses_B" instance=ExtResource( 13 )]
+
+transform/pos = Vector2( 144475, 50670.5 )
+transform/rot = -207.946
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea12166" parent="Impulses_B" instance=ExtResource( 13 )]
+
+transform/pos = Vector2( 149026, 66648.9 )
+transform/rot = -207.946
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea12167" parent="Impulses_B" instance=ExtResource( 13 )]
+
+transform/pos = Vector2( 134059, 70997.4 )
+transform/rot = -207.946
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea1214 2" parent="Impulses_B" instance=ExtResource( 13 )]
+
+transform/pos = Vector2( 175653, 15363.6 )
+transform/rot = -189.203
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea12144" parent="Impulses_B" instance=ExtResource( 13 )]
+
+transform/pos = Vector2( 171405, 24970.9 )
+transform/rot = -189.203
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea12145" parent="Impulses_B" instance=ExtResource( 13 )]
+
+transform/pos = Vector2( 158258, 28409.3 )
+transform/rot = -189.203
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea12146" parent="Impulses_B" instance=ExtResource( 13 )]
+
+transform/pos = Vector2( 162607, 44691.1 )
+transform/rot = -189.203
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea12147" parent="Impulses_B" instance=ExtResource( 13 )]
+
+transform/pos = Vector2( 145718, 46106.9 )
+transform/rot = -189.203
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea12148" parent="Impulses_B" instance=ExtResource( 13 )]
+
+transform/pos = Vector2( 150269, 62085.3 )
+transform/rot = -189.203
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea12149" parent="Impulses_B" instance=ExtResource( 13 )]
+
+transform/pos = Vector2( 135302, 66433.8 )
+transform/rot = -189.203
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea12143" parent="Impulses_B" instance=ExtResource( 13 )]
+
+transform/pos = Vector2( 169353, 20722.1 )
+transform/rot = -193.704
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea12144 2" parent="Impulses_B" instance=ExtResource( 13 )]
+
+transform/pos = Vector2( 165105, 30329.4 )
+transform/rot = -193.704
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea121443" parent="Impulses_B" instance=ExtResource( 13 )]
+
+transform/pos = Vector2( 151958, 33767.8 )
+transform/rot = -193.704
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea121444" parent="Impulses_B" instance=ExtResource( 13 )]
+
+transform/pos = Vector2( 156307, 50049.5 )
+transform/rot = -193.704
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea121445" parent="Impulses_B" instance=ExtResource( 13 )]
+
+transform/pos = Vector2( 139418, 51465.3 )
+transform/rot = -193.704
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea121446" parent="Impulses_B" instance=ExtResource( 13 )]
+
+transform/pos = Vector2( 143969, 67443.7 )
+transform/rot = -193.704
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea121447" parent="Impulses_B" instance=ExtResource( 13 )]
+
+transform/pos = Vector2( 129002, 71792.3 )
+transform/rot = -193.704
 transform/scale = Vector2( 1, 1 )
 IMPULSE_THROTTLE = 600
 
