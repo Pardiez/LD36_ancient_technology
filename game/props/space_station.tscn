@@ -37,6 +37,7 @@ arm_texture = null
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 
+visibility/visible = false
 build_mode = 0
 polygon = Vector2Array( -1620, 50, -1130, 1320, 290, 1620, 1430, 940, 1640, -220, 1120, -1410, -60, -1680, -1380, -1100 )
 shape_range = Vector2( 0, 0 )
