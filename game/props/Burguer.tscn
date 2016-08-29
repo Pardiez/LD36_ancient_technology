@@ -24,8 +24,6 @@ arm_texture = null
 
 [node name="Sprite" type="Sprite" parent="."]
 
-texture = ExtResource( 2 )
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
 transform/pos = Vector2( 0.999441, 2.23186 )

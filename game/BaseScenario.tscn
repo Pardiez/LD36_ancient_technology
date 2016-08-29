@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=1]
+[gd_scene load_steps=22 format=1]
 
 [ext_resource path="res://scripts/game.gd" type="Script" id=1]
 [ext_resource path="res://Ship.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://props/LandMarkPortal.tscn" type="PackedScene" id=9]
 [ext_resource path="res://ImpulseArea.tscn" type="PackedScene" id=10]
 [ext_resource path="res://props/LandmarkBurguer.tscn" type="PackedScene" id=11]
+[ext_resource path="res://props/LandmarkAncient.tscn" type="PackedScene" id=12]
 
 [sub_resource type="DynamicFontData" id=1]
 
@@ -723,6 +724,10 @@ IMPULSE_THROTTLE = 600
 
 [node name="LandmarkBurguer" parent="." instance=ExtResource( 11 )]
 
-transform/pos = Vector2( 4823.56, 8367.94 )
+transform/pos = Vector2( 4776.64, 7312.32 )
+
+[node name="LandmarkAncient" parent="." instance=ExtResource( 12 )]
+
+transform/pos = Vector2( 3624.33, 9167.42 )
 
 
