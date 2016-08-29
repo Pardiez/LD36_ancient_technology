@@ -14,7 +14,12 @@ var mode = MODE_NORMAL
 
 onready var text = {
 	"SpaceStation1" : { "LM1" : tr("LM1") },
-	"SpaceStation2" : { "LM2" : tr("LM2") }
+	"SpaceStation2" : { "LM2" : tr("LM2") },
+	"SpaceStation3" : { "LM3" : tr("LM3") },
+	"SpaceStation4" : { "LM4" : tr("LM4") },
+	"SpaceStation5" : { "LM5" : tr("LM5") },
+	"SpaceStation6" : { "LM6" : tr("LM6") },
+	"SpaceStation7" : { "LM7" : tr("LM7") }
 }
 
 var history = {}
@@ -29,8 +34,8 @@ func _ready():
 	_add_space_crap()
 	_handle_ship_messages()
 	
-	for lm in get_tree().get_nodes_in_group("landmarks"):
-		lm.connect("landmark_visited",self, "_landmark_visited")
+#	for lm in get_tree().get_nodes_in_group("landmarks"):
+#		lm.connect("landmark_visited",self, "_landmark_visited")
 	
 	set_process_input(true)
 
@@ -43,6 +48,11 @@ func _landmark_visited(code):
 func _set_texts():
 	get_node("SpaceStation1").set_text(text['SpaceStation1'])
 	get_node("SpaceStation2").set_text(text['SpaceStation2'])
+	get_node("SpaceStation3").set_text(text['SpaceStation3'])
+	get_node("SpaceStation4").set_text(text['SpaceStation4'])
+	get_node("SpaceStation5").set_text(text['SpaceStation5'])
+	get_node("SpaceStation6").set_text(text['SpaceStation6'])
+	get_node("SpaceStation7").set_text(text['SpaceStation7'])
 	
 func _handle_ship_messages():
 	for station in get_tree().get_nodes_in_group("stations"):

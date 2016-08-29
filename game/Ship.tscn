@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=1]
+[gd_scene load_steps=7 format=1]
 
 [ext_resource path="res://scripts/Ship.gd" type="Script" id=1]
 [ext_resource path="res://assets/graphics/player.atex" type="Texture" id=2]
 [ext_resource path="res://scripts/cam.gd" type="Script" id=3]
 [ext_resource path="res://assets/graphics/big_green_arrow_1.tex" type="Texture" id=4]
+[ext_resource path="res://assets/graphics/light.png" type="Texture" id=5]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
@@ -80,5 +81,26 @@ process_mode = 1
 wait_time = 1.0
 one_shot = false
 autostart = false
+
+[node name="Light2D" type="Light2D" parent="."]
+
+enabled = true
+texture = ExtResource( 5 )
+offset = Vector2( 0, 0 )
+scale = 2.0
+color = Color( 0.941406, 0.878891, 0.878891, 1 )
+energy = 1.0
+mode = 0
+range/height = 0.0
+range/z_min = -1024
+range/z_max = 1024
+range/layer_min = 0
+range/layer_max = 0
+range/item_mask = 1
+shadow/enabled = false
+shadow/color = Color( 0, 0, 0, 0 )
+shadow/buffer_size = 2048
+shadow/esm_multiplier = 80.0
+shadow/item_mask = 1
 
 

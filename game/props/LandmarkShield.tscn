@@ -13,4 +13,3 @@ script/script = ExtResource( 1 )
 [node name="Station" parent="." instance=ExtResource( 3 )]
 
 
-
