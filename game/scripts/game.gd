@@ -13,17 +13,7 @@ const MODE_NORMAL = 1
 var mode = MODE_NORMAL
 
 onready var scripts = {
-	"intro" : {
-			"text": ["Tantos años viajando...", "En los logs de esta estacion indica que la tripulacion abandono hace siglos..."],		
-			"next": get_node("SpaceStation2").get_pos()
-	},
-	"body" : {
-			"text": ["Estos aliens tenian la formula de la eterna juventud"],	
-			"next": get_node("SpaceStation3").get_pos()
-	},
-	"theend" : {
-			"text": ["Vaya, aqui se acaba todo"],	
-	} 
+	1 : "Parece que alguien está dedicando su tiempo en el noble arte del adoctrinamiento y vaciado de cuerpos. Restos de personas, como pellejos, tal vez se parezcan más a mi ahora que cuando vivían."
 }
 
 var history = {}
@@ -34,16 +24,25 @@ func _ready():
 	cam = ship.get_node("Camera2D")
 	add_child(tween)
 	
-	var x = get_node("Boundary/CollisionShape2D").get_pos().x
-	var y = get_node("Boundary/CollisionShape2D").get_pos().y
-	get_node("Asteroids").generate(x, y)
-	get_node("PropShips").generate(x, y)
+	_set_scripts()
+	_add_space_crap()
+	_handle_ship_messages()
 	
+	set_process_input(true)
+
+func _set_scripts():
+	get_node("SpaceStation1").set_script(scripts)
+	
+func _handle_ship_messages():
 	for station in get_tree().get_nodes_in_group("stations"):
 		station.connect("body_enter",self, "_ship_enter_in_station")
 		station.connect("body_exit",self, "_ship_exit_in_station")
 	
-	set_process_input(true)
+func _add_space_crap():
+	var x = get_node("Boundary/CollisionShape2D").get_pos().x
+	var y = get_node("Boundary/CollisionShape2D").get_pos().y
+	get_node("Asteroids").generate(x, y)
+	get_node("PropShips").generate(x, y)
 
 func _ship_enter_in_station(body):
 	if body.get_name() != 'ship':

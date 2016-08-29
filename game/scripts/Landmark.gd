@@ -6,6 +6,9 @@ func _ready():
 		
 	set_process_input(true)
 
+func set_script(script_map):
+	get_node("UI").set_script(script_map)
+
 func _ship_enter_station():
 	get_node("UI").fade_in()
 

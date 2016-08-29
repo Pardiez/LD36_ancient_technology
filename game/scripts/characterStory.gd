@@ -17,14 +17,19 @@ func _next_message():
 	get_node("CharacterMessageAnimation").play("show")
 	set_text(messages[next_message])
 	next_message += 1
-	if(next_message == messages.size()):
+	if(_no_left_mesagges()):
 		timer.stop()
 	
+func _no_left_mesagges():
+	return next_message == messages.size()
 	
 func disable_messages():
 	timer.stop()
 	hide()
 
 func enable_messages():
+	if(_no_left_mesagges()):
+		return
+	
 	timer.start()
 	show()
