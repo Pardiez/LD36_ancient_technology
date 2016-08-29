@@ -80,6 +80,7 @@ autoplay = "start"
 
 [node name="Sprites" type="Node2D" parent="."]
 
+editor/display_folded = true
 material/material = SubResource( 4 )
 
 [node name="centerSprite" type="Sprite" parent="Sprites"]

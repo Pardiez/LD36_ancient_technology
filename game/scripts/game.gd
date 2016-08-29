@@ -14,6 +14,10 @@ const MODE_MAP = 0
 const MODE_NORMAL = 1
 var mode = MODE_NORMAL
 
+var lm7 = tr("LM7") 
+var lm8 = tr("LM8") 
+var lm9 = tr("LM9") 
+var end = lm7+lm8+lm9
 onready var text = {
 	"SpaceStation1" : { "LM1" : tr("LM1") },
 	"SpaceStation2" : { "LM2" : tr("LM2") },
@@ -21,14 +25,14 @@ onready var text = {
 	"SpaceStation4" : { "LM4" : tr("LM4") },
 	"SpaceStation5" : { "LM5" : tr("LM5") },
 	"SpaceStation6" : { "LM6" : tr("LM6") },
-	"SpaceStation7" : { "LM7" : tr("LM7") }
+	"SpaceStation7" : { "LM7" : end}
 }
 
 var history = {}
 
 func _ready():
 	get_node("Boundary").connect("body_enter",self,"_ship_body_enter")
-		
+	get_node("SpaceStation7").connect("landmark_visited",self, "_finish_game")
 	cam = ship.get_node("Camera2D")
 	add_child(tween)
 	
@@ -36,8 +40,8 @@ func _ready():
 	_add_space_crap()
 	_handle_ship_messages()
 	
-#	for lm in get_tree().get_nodes_in_group("landmarks"):
-#		lm.connect("landmark_visited",self, "_landmark_visited")
+	for lm in get_tree().get_nodes_in_group("landmarks"):
+		lm.connect("landmark_visited",self, "_ship_exit_in_station_message")
 	
 	set_process_input(true)
 
@@ -72,10 +76,13 @@ func _ship_enter_in_station(body):
 		return
 	character_story.disable_messages()
 
+func _ship_exit_in_station_message(message):
+	character_story.enable_messages()
+	
 func _ship_exit_in_station(body):
 	if body.get_name() != 'ship':
 		return
-	character_story.enable_messages()
+	
 	if current_song == 0:
 		get_node("StreamPlayer01").stop()
 		get_node("StreamPlayer02").play()
@@ -94,9 +101,7 @@ func _input(event):
 			mode = MODE_NORMAL
 			_zoom_interpolation(NORMAL_ZOOM)
 
-func _ship_body_enter(body):
-	if body.get_name() != 'ship':
-		return
+func _finish_game(message):
 	get_node("UICanvas/ZoneTitle").fade_in()
 
 func _zoom_interpolation(zoom):
