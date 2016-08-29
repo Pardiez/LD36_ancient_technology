@@ -13,7 +13,7 @@ const MODE_NORMAL = 1
 var mode = MODE_NORMAL
 
 onready var scripts = {
-	1 : tr("LM1")
+	"LM1" : tr("LM1")
 }
 
 var history = {}
@@ -28,7 +28,13 @@ func _ready():
 	_add_space_crap()
 	_handle_ship_messages()
 	
+	for lm in get_tree().get_nodes_in_group("landmarks"):
+		lm.connect("landmark_visited",self, "_landmark_visited")
+	
 	set_process_input(true)
+
+func _landmark_visited(code):
+	print("visited " + code)
 
 func _set_scripts():
 	get_node("SpaceStation1").set_script(scripts)
