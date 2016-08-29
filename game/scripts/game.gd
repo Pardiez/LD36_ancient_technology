@@ -13,7 +13,7 @@ const MODE_NORMAL = 1
 var mode = MODE_NORMAL
 
 onready var scripts = {
-	1 : "Parece que alguien está dedicando su tiempo en el noble arte del adoctrinamiento y vaciado de cuerpos. Restos de personas, como pellejos, tal vez se parezcan más a mi ahora que cuando vivían."
+	1 : tr("LM1")
 }
 
 var history = {}
