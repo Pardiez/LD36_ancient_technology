@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://scripts/Landmark.gd" type="Script" id=1]
 [ext_resource path="res://props/Burguer.tscn" type="PackedScene" id=2]
 [ext_resource path="res://props/LandmarkUI.tscn" type="PackedScene" id=3]
+[ext_resource path="res://props/StationSamplePlayer2D.tscn" type="PackedScene" id=4]
 
 [node name="LandmarkBurguer" type="Node2D"]
 
@@ -13,5 +14,7 @@ script/script = ExtResource( 1 )
 center_texture = null
 
 [node name="UI" parent="." instance=ExtResource( 3 )]
+
+[node name="SamplePlayer2D" parent="." instance=ExtResource( 4 )]
 
 

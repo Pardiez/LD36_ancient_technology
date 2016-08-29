@@ -1,7 +1,10 @@
-[gd_scene load_steps=7 format=1]
+[gd_scene load_steps=11 format=1]
 
 [ext_resource path="res://scripts/ImpulseArea.gd" type="Script" id=1]
 [ext_resource path="res://assets/graphics/solar_wind.tex" type="Texture" id=2]
+[ext_resource path="res://assets/sound/fx/another_chord_01.wav" type="Sample" id=3]
+[ext_resource path="res://assets/sound/fx/another_chord_02.wav" type="Sample" id=4]
+[ext_resource path="res://assets/sound/fx/another_chord_03.wav" type="Sample" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -29,6 +32,12 @@ tracks/0/path = NodePath("Sprite:material/material:shader_param/fattyness")
 tracks/0/interp = 1
 tracks/0/imported = false
 tracks/0/keys = { "times":FloatArray( 0, 0.2, 0.4, 1.1, 1.2, 1.3 ), "transitions":FloatArray( 1, 1, 1, 1, 1, 1 ), "update":0, "values":[ 1.0, 0.8, 2.0, 0.9, 1.1, 1.0 ] }
+
+[sub_resource type="SampleLibrary" id=5]
+
+samples/another_chord_01 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 3 ) }
+samples/another_chord_02 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 4 ) }
+samples/another_chord_03 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 5 ) }
 
 [node name="ImpulseArea" type="Area2D"]
 
@@ -67,5 +76,16 @@ playback/active = true
 playback/speed = 2.0
 blend_times = [  ]
 autoplay = ""
+
+[node name="SamplePlayer2D" type="SamplePlayer2D" parent="."]
+
+params/volume_db = 0.0
+params/pitch_scale = 1.0
+params/attenuation/min_distance = 1024.0
+params/attenuation/max_distance = 8000.0
+params/attenuation/distance_exp = 1.0
+config/polyphony = 1
+config/samples = SubResource( 5 )
+config/pitch_random = 0.0
 
 

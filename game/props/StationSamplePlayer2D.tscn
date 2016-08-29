@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=1]
+
+[ext_resource path="res://assets/sound/fx/station_melody_01.wav" type="Sample" id=1]
+[ext_resource path="res://assets/sound/fx/station_melody_02.wav" type="Sample" id=2]
+
+[sub_resource type="SampleLibrary" id=1]
+
+samples/melody_01 = { "db":0.01, "pitch":3.0, "sample":ExtResource( 1 ) }
+samples/melody_02 = { "db":0.0, "pitch":3.0, "sample":ExtResource( 2 ) }
+
+[node name="SamplePlayer2D" type="SamplePlayer2D"]
+
+params/volume_db = -6.0
+params/pitch_scale = 1.0
+params/attenuation/min_distance = 1000.0
+params/attenuation/max_distance = 2000.0
+params/attenuation/distance_exp = 1.0
+config/polyphony = 1
+config/samples = SubResource( 1 )
+config/pitch_random = 0.0
+
+

@@ -19,6 +19,8 @@ func _landmark_visited(text_code):
 	emit_signal("landmark_visited", text_code)
 
 func _ship_enter_station():
+	randomize()
+	get_node("SamplePlayer2D").play("melody_0"+str(floor(rand_range(1, 2))))
 	ui.fade_in()
 
 func _ship_exit_station():

@@ -3,6 +3,8 @@ extends Node2D
 onready var tween = Tween.new()
 onready var ship = get_node("ship")
 onready var character_story = get_node("UICanvas/CharacterStory")
+var current_song = 0
+
 var cam 
 const SHOW_MAP_DURATION = 2
 const MAP_ZOOM = 8
@@ -74,6 +76,14 @@ func _ship_exit_in_station(body):
 	if body.get_name() != 'ship':
 		return
 	character_story.enable_messages()
+	if current_song == 0:
+		get_node("StreamPlayer01").stop()
+		get_node("StreamPlayer02").play()
+		current_song = 1
+	else:
+		get_node("StreamPlayer02").stop()
+		get_node("StreamPlayer01").play()
+		current_song = 0
 
 func _input(event):
 	if event.is_action_pressed("ui_accept"):
