@@ -6,7 +6,7 @@ onready var character_story = get_node("UICanvas/CharacterStory")
 var cam 
 const SHOW_MAP_DURATION = 2
 const MAP_ZOOM = 8
-const NORMAL_ZOOM = 2
+const NORMAL_ZOOM = 4
 
 const MODE_MAP = 0
 const MODE_NORMAL = 1
