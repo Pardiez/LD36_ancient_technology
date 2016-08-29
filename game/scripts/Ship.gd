@@ -2,27 +2,25 @@ extends RigidBody2D
 
 const ROTATE_SPEED = 3
 var THROTTLE = 100
-var SPEED_LIMIT
+const SPEED_LIMIT = 1000
 var arrow_pointer
 onready var arrow = get_node('arrow')
 
 func _ready():
-	SPEED_LIMIT = 1000 #bug initializing above?
 	set_fixed_process(true)
-	
 
 func _fixed_process(delta):
-	input_rotation(delta)
-	input_throttle(delta)
-	update_arrow()
+	_input_rotation(delta)
+	_input_throttle(delta)
+	_update_arrow()
 
-func input_throttle(delta):
+func _input_throttle(delta):
 	if (Input.is_action_pressed("ui_up")):
-		impulse(THROTTLE*delta, get_rot())
+		_impulse(THROTTLE*delta, get_rot())
 	if (Input.is_action_pressed("ui_down")):
-		impulse(-THROTTLE*delta, get_rot())
+		_impulse(-THROTTLE*delta, get_rot())
 
-func input_rotation(delta):
+func _input_rotation(delta):
 	var rot = get_rot()
 	if (Input.is_action_pressed("ui_left")):
 		rot = rot + ROTATE_SPEED * delta
@@ -30,17 +28,20 @@ func input_rotation(delta):
 		rot = rot - ROTATE_SPEED * delta
 	set_rot(rot)
 
-func impulse(throttle, rot):
+func _impulse(throttle, rot):
 	if (get_linear_velocity().length() > SPEED_LIMIT):
     	set_linear_velocity(get_linear_velocity().normalized()*(SPEED_LIMIT-1))
 	else:
 		apply_impulse(Vector2(0,0), Vector2(0, -throttle).rotated(rot))
 
-func set_point(pos):
+func set_radar(pos):
 	arrow.set_opacity(1)
 	arrow_pointer = pos
+	
+func hide_radar():
+	arrow_pointer = null
 
-func update_arrow():
+func _update_arrow():
 	if(arrow_pointer == null):
 		arrow.set_opacity(0)
 		return

@@ -13,7 +13,8 @@ const MODE_NORMAL = 1
 var mode = MODE_NORMAL
 
 onready var scripts = {
-	"LM1" : tr("LM1")
+	"SpaceStation1" : { "LM1" : tr("LM1") },
+	"SpaceStation2" : { "LM2" : tr("LM2") }
 }
 
 var history = {}
@@ -34,10 +35,14 @@ func _ready():
 	set_process_input(true)
 
 func _landmark_visited(code):
-	print("visited " + code)
-
+	if(code == "LM1"):
+		ship.set_radar(get_node("SpaceStation2").get_pos())
+	if(code == "LM2"):
+		ship.hide_radar()
+	
 func _set_scripts():
-	get_node("SpaceStation1").set_script(scripts)
+	get_node("SpaceStation1").set_script(scripts['SpaceStation1'])
+	get_node("SpaceStation2").set_script(scripts['SpaceStation2'])
 	
 func _handle_ship_messages():
 	for station in get_tree().get_nodes_in_group("stations"):
