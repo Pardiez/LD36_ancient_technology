@@ -5,7 +5,7 @@ onready var ship = get_node("ship")
 onready var character_story = get_node("UICanvas/CharacterStory")
 var cam 
 const SHOW_MAP_DURATION = 2
-const MAP_ZOOM = 20
+const MAP_ZOOM = 8
 const NORMAL_ZOOM = 2
 
 const MODE_MAP = 0
@@ -31,8 +31,6 @@ func _ready():
 	
 	for lm in get_tree().get_nodes_in_group("landmarks"):
 		lm.connect("landmark_visited",self, "_landmark_visited")
-	
-	get_node("ImpulseArea").set_direction(get_node("SpaceStation2").get_pos())
 	
 	set_process_input(true)
 

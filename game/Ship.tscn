@@ -3,7 +3,7 @@
 [ext_resource path="res://scripts/Ship.gd" type="Script" id=1]
 [ext_resource path="res://assets/graphics/player.atex" type="Texture" id=2]
 [ext_resource path="res://scripts/cam.gd" type="Script" id=3]
-[ext_resource path="res://assets/graphics/green_arrow_1.tex" type="Texture" id=4]
+[ext_resource path="res://assets/graphics/big_green_arrow_1.tex" type="Texture" id=4]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
@@ -70,9 +70,9 @@ zoom_scale = 2
 
 [node name="arrow" type="Sprite" parent="."]
 
-transform/pos = Vector2( -0.103355, 0.109291 )
+transform/pos = Vector2( -0.0264053, 0.193806 )
 texture = ExtResource( 4 )
-offset = Vector2( 0.269478, -109.259 )
+offset = Vector2( 0.192528, -238.711 )
 
 [node name="BumpTimer" type="Timer" parent="."]
 

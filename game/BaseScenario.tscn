@@ -1,27 +1,29 @@
 [gd_scene load_steps=21 format=1]
 
 [ext_resource path="res://scripts/game.gd" type="Script" id=1]
-[ext_resource path="res://assets/fonts/Teko/Teko-SemiBold.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://scripts/characterStory.gd" type="Script" id=3]
-[ext_resource path="res://Ship.tscn" type="PackedScene" id=4]
-[ext_resource path="res://assets/sound/music/ld36_ancient_technology_02.ogg" type="AudioStream" id=5]
-[ext_resource path="res://assets/graphics/star_02.tex" type="Texture" id=6]
-[ext_resource path="res://props/LandmarkRoot.tscn" type="PackedScene" id=7]
-[ext_resource path="res://props/asteroid1.tscn" type="PackedScene" id=8]
-[ext_resource path="res://scripts/prop_ships.gd" type="Script" id=9]
-[ext_resource path="res://props/LandmarkPortalDentate.tscn" type="PackedScene" id=10]
-[ext_resource path="res://props/LandmarkShield.tscn" type="PackedScene" id=11]
-[ext_resource path="res://props/LandMarkPortal.tscn" type="PackedScene" id=12]
-[ext_resource path="res://ImpulseArea.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Ship.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/sound/music/ld36_ancient_technology_02.ogg" type="AudioStream" id=3]
+[ext_resource path="res://assets/graphics/star_02.tex" type="Texture" id=4]
+[ext_resource path="res://props/LandmarkRoot.tscn" type="PackedScene" id=5]
+[ext_resource path="res://props/asteroid1.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scripts/prop_ships.gd" type="Script" id=7]
+[ext_resource path="res://props/LandmarkPortalDentate.tscn" type="PackedScene" id=8]
+[ext_resource path="res://props/LandmarkShield.tscn" type="PackedScene" id=9]
+[ext_resource path="res://props/LandMarkPortal.tscn" type="PackedScene" id=10]
+[ext_resource path="res://ImpulseArea.tscn" type="PackedScene" id=11]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFontData" id=8]
+
+font_path = "res://assets/fonts/Teko/Teko-SemiBold.ttf"
+
+[sub_resource type="DynamicFont" id=9]
 
 font/size = 18
 font/use_mipmaps = false
 font/use_filter = false
-font/font = ExtResource( 2 )
+font/font = SubResource( 8 )
 
-[sub_resource type="GDScript" id=2]
+[sub_resource type="GDScript" id=10]
 
 script/source = "extends Label\n\nfunc fade_in():\n\tget_node(\"TitleAnimation\").play(\"show\")\n\tvar timer = get_node(\"FadeOutTimer\")\n\ttimer.set_wait_time(4)\n\ttimer.connect(\"timeout\", self, \"fade_out\")\n\ttimer.start()\n\t\nfunc fade_out():\n\tget_node(\"TitleAnimation\").play(\"hide\")"
 
@@ -48,12 +50,16 @@ tracks/0/interp = 1
 tracks/0/imported = false
 tracks/0/keys = { "times":FloatArray( 0, 2 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 0.0, 1.0 ] }
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=11]
 
-font/size = 22
+font/size = 18
 font/use_mipmaps = false
 font/use_filter = false
-font/font = ExtResource( 2 )
+font/font = SubResource( 8 )
+
+[sub_resource type="GDScript" id=12]
+
+script/source = "extends Label\n\nvar messages = [tr(\"CH1\"), tr(\"CH2\")]\n\nvar next_message = 0\nonready var timer = get_node(\"Timer\")\n\nfunc _ready():\n\tset_text(messages[next_message])\n\ttimer.start()\n\ttimer.connect(\"timeout\", self, \"_next_message\")\n\nfunc _next_message():\n\tget_node(\"CharacterMessageAnimation\").play(\"show\")\n\tset_text(messages[next_message])\n\tnext_message += 1\n\tif(_no_left_mesagges()):\n\t\ttimer.stop()\n\t\nfunc _no_left_mesagges():\n\treturn next_message == messages.size()\n\t\nfunc disable_messages():\n\ttimer.stop()\n\thide()\n\nfunc enable_messages():\n\tif(_no_left_mesagges()):\n\t\treturn\n\t\n\ttimer.start()\n\tshow()"
 
 [sub_resource type="Animation" id=6]
 
@@ -67,10 +73,10 @@ tracks/0/interp = 1
 tracks/0/imported = false
 tracks/0/keys = { "times":FloatArray( 0, 2, 8, 10 ), "transitions":FloatArray( 1, 1, 1, 1 ), "update":0, "values":[ 0.0, 1.0, 1.0, 0.0 ] }
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=13]
 
 custom_solver_bias = 0.0
-extents = Vector2( 42500, 42500 )
+extents = Vector2( 134278, 912.277 )
 
 [node name="RootNode" type="Node2D"]
 
@@ -86,7 +92,6 @@ scale = Vector2( 1, 1 )
 
 [node name="ZoneTitle" type="Label" parent="UICanvas"]
 
-editor/display_folded = true
 visibility/opacity = 0.0
 visibility/blend_mode = 1
 anchor/left = 3
@@ -99,7 +104,7 @@ margin/left = 333.0
 margin/top = 3.0
 margin/right = -387.0
 margin/bottom = 259.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 9 )
 text = "zone title"
 align = 1
 autowrap = true
@@ -107,7 +112,7 @@ uppercase = true
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-script/script = SubResource( 2 )
+script/script = SubResource( 10 )
 
 [node name="TitleAnimation" type="AnimationPlayer" parent="UICanvas/ZoneTitle"]
 
@@ -120,21 +125,6 @@ playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
 autoplay = ""
-
-[node name="RichTextLabel" type="RichTextLabel" parent="UICanvas/ZoneTitle"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 214.0
-margin/top = 109.0
-margin/right = 804.0
-margin/bottom = 303.0
-custom_fonts/normal_font = SubResource( 5 )
-bbcode/enabled = false
-bbcode/bbcode = "Clue 01 asdfdasfdasfasdfas"
-visible_characters = -1
 
 [node name="FadeOutTimer" type="Timer" parent="UICanvas/ZoneTitle"]
 
@@ -159,14 +149,14 @@ margin/left = 360.0
 margin/top = 200.0
 margin/right = -360.0
 margin/bottom = 50.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 11 )
 text = "Ground Control to Major Tom"
 align = 1
 autowrap = true
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-script/script = ExtResource( 3 )
+script/script = SubResource( 12 )
 
 [node name="Timer" type="Timer" parent="UICanvas/CharacterStory"]
 
@@ -186,17 +176,15 @@ playback/speed = 1.0
 blend_times = [  ]
 autoplay = ""
 
-[node name="ship" parent="." instance=ExtResource( 4 )]
+[node name="ship" parent="." instance=ExtResource( 2 )]
 
 transform/pos = Vector2( 5133.95, 8610.31 )
 
 [node name="Boundary" type="Area2D" parent="."]
 
-editor/display_folded = true
-visibility/visible = false
 input/pickable = true
-shapes/0/shape = SubResource( 7 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 42500, 42500 )
+shapes/0/shape = SubResource( 13 )
+shapes/0/transform = Matrix32( 1, 0, 0, 69.6836, 118978, 43638.5 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -205,19 +193,20 @@ angular_damp = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boundary"]
 
-transform/pos = Vector2( 42500, 42500 )
-shape = SubResource( 7 )
+transform/pos = Vector2( 118978, 43638.5 )
+transform/scale = Vector2( 1, 69.6836 )
+shape = SubResource( 13 )
 trigger = false
 _update_shape_index = 0
 
 [node name="StreamPlayer" type="StreamPlayer" parent="."]
 
-stream/stream = ExtResource( 5 )
+stream/stream = ExtResource( 3 )
 stream/play = false
 stream/loop = false
 stream/volume_db = 0.0
 stream/autoplay = true
-stream/paused = true
+stream/paused = false
 stream/loop_restart_time = 0.0
 stream/buffering_ms = 500
 
@@ -246,55 +235,55 @@ motion/mirroring = Vector2( 1920, 1080 )
 
 transform/pos = Vector2( 246.495, 157.702 )
 transform/rot = -1.68487
-texture = ExtResource( 6 )
+texture = ExtResource( 4 )
 
 [node name="Sprite1" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
 
 transform/pos = Vector2( 692.099, 615.893 )
 transform/rot = -1.68487
-texture = ExtResource( 6 )
+texture = ExtResource( 4 )
 
 [node name="Sprite2" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
 
 transform/pos = Vector2( 1563.17, 218.123 )
 transform/rot = -1.68487
-texture = ExtResource( 6 )
+texture = ExtResource( 4 )
 
 [node name="Sprite3" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
 
 transform/pos = Vector2( 1213.23, 834.918 )
 transform/rot = -1.68487
-texture = ExtResource( 6 )
+texture = ExtResource( 4 )
 
 [node name="Sprite4" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
 
 transform/pos = Vector2( 1034.48, 303.719 )
 transform/rot = -1.68487
-texture = ExtResource( 6 )
+texture = ExtResource( 4 )
 
 [node name="Sprite5" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
 
 transform/pos = Vector2( 138.241, 885.269 )
 transform/rot = -1.68487
-texture = ExtResource( 6 )
+texture = ExtResource( 4 )
 
 [node name="Sprite6" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
 
 transform/pos = Vector2( 1215.75, 608.34 )
 transform/rot = -1.68487
-texture = ExtResource( 6 )
+texture = ExtResource( 4 )
 
 [node name="Sprite7" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
 
 transform/pos = Vector2( 1565.68, 469.876 )
 transform/rot = -1.68487
-texture = ExtResource( 6 )
+texture = ExtResource( 4 )
 
 [node name="Sprite8" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
 
 transform/pos = Vector2( 1641.21, 822.331 )
 transform/rot = -19.8463
-texture = ExtResource( 6 )
+texture = ExtResource( 4 )
 
 [node name="ParallaxLayer1" type="ParallaxLayer" parent="ParallaxBackground"]
 
@@ -308,101 +297,433 @@ motion/mirroring = Vector2( 1920, 1080 )
 transform/pos = Vector2( 293.658, 90.0337 )
 transform/rot = -1.68487
 transform/scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 6 )
+texture = ExtResource( 4 )
 
 [node name="Sprite1" type="Sprite" parent="ParallaxBackground/ParallaxLayer1"]
 
 transform/pos = Vector2( 739.261, 548.225 )
 transform/rot = -1.68487
 transform/scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 6 )
+texture = ExtResource( 4 )
 
 [node name="Sprite2" type="Sprite" parent="ParallaxBackground/ParallaxLayer1"]
 
 transform/pos = Vector2( 1610.33, 150.455 )
 transform/rot = -1.68487
 transform/scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 6 )
+texture = ExtResource( 4 )
 
 [node name="Sprite3" type="Sprite" parent="ParallaxBackground/ParallaxLayer1"]
 
 transform/pos = Vector2( 1260.39, 767.25 )
 transform/rot = -1.68487
 transform/scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 6 )
+texture = ExtResource( 4 )
 
 [node name="Sprite4" type="Sprite" parent="ParallaxBackground/ParallaxLayer1"]
 
 transform/pos = Vector2( 1081.65, 236.051 )
 transform/rot = -1.68487
 transform/scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 6 )
+texture = ExtResource( 4 )
 
 [node name="Sprite5" type="Sprite" parent="ParallaxBackground/ParallaxLayer1"]
 
 transform/pos = Vector2( 185.404, 817.601 )
 transform/rot = -1.68487
 transform/scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 6 )
+texture = ExtResource( 4 )
 
 [node name="Sprite6" type="Sprite" parent="ParallaxBackground/ParallaxLayer1"]
 
 transform/pos = Vector2( 1262.91, 540.672 )
 transform/rot = -1.68487
 transform/scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 6 )
+texture = ExtResource( 4 )
 
 [node name="Sprite7" type="Sprite" parent="ParallaxBackground/ParallaxLayer1"]
 
 transform/pos = Vector2( 1612.85, 402.208 )
 transform/rot = -1.68487
 transform/scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 6 )
+texture = ExtResource( 4 )
 
 [node name="Sprite8" type="Sprite" parent="ParallaxBackground/ParallaxLayer1"]
 
 transform/pos = Vector2( 1688.37, 754.662 )
 transform/rot = -19.8463
 transform/scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 6 )
+texture = ExtResource( 4 )
 
-[node name="SpaceStation1" parent="." instance=ExtResource( 7 )]
+[node name="SpaceStation1" parent="." instance=ExtResource( 5 )]
 
-transform/pos = Vector2( 5920, 6688 )
+transform/pos = Vector2( 6711.3, 5837.05 )
 
-[node name="SpaceStation2" parent="." instance=ExtResource( 7 )]
+[node name="SpaceStation2" parent="." instance=ExtResource( 5 )]
 
-transform/pos = Vector2( 16893.2, 5850.65 )
+transform/pos = Vector2( 173404, 5967.82 )
 
-[node name="SpaceStation3" parent="." instance=ExtResource( 7 )]
+[node name="SpaceStation3" parent="." instance=ExtResource( 5 )]
 
-transform/pos = Vector2( 11777.3, 10410.6 )
+transform/pos = Vector2( 97433.5, 64932.6 )
 
-[node name="Asteroids" parent="." instance=ExtResource( 8 )]
+[node name="Asteroids" parent="." instance=ExtResource( 6 )]
 
 [node name="PropShips" type="Node2D" parent="."]
 
-script/script = ExtResource( 9 )
+script/script = ExtResource( 7 )
 
-[node name="PortalDentate1" parent="." instance=ExtResource( 10 )]
+[node name="PortalDentate1" parent="." instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 3870.66, 8788.31 )
-transform/scale = Vector2( 8, 8 )
 
-[node name="LandmarkShield" parent="." instance=ExtResource( 11 )]
+[node name="LandmarkShield" parent="." instance=ExtResource( 9 )]
 
 transform/pos = Vector2( 6447.67, 9126.21 )
-transform/scale = Vector2( 4.1652, 4.27504 )
 
-[node name="LandMarkPortal" parent="." instance=ExtResource( 12 )]
+[node name="LandMarkPortal" parent="." instance=ExtResource( 10 )]
 
 transform/pos = Vector2( 3571.96, 7308.3 )
 transform/scale = Vector2( 7.74697, 6.97956 )
 
-[node name="ImpulseArea" parent="." instance=ExtResource( 13 )]
+[node name="Impulses_A" type="Node2D" parent="."]
 
-transform/pos = Vector2( 8136.54, 7558.89 )
+editor/display_folded = true
+
+[node name="ImpulseArea" parent="Impulses_A" instance=ExtResource( 11 )]
+
+transform/pos = Vector2( 9202.52, 6945.95 )
 transform/rot = -72.1441
-IMPULSE_THROTTLE = 200
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea13" parent="Impulses_A" instance=ExtResource( 11 )]
+
+transform/pos = Vector2( 50968.8, 2091.73 )
+transform/rot = -72.1441
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea12" parent="Impulses_A" instance=ExtResource( 11 )]
+
+transform/pos = Vector2( 21540.3, 12204.7 )
+transform/rot = -72.1441
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea13 3" parent="Impulses_A" instance=ExtResource( 11 )]
+
+transform/pos = Vector2( 63306.5, 7350.43 )
+transform/rot = -72.1441
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea5" parent="Impulses_A" instance=ExtResource( 11 )]
+
+transform/pos = Vector2( 15681.3, 9428.49 )
+transform/rot = -72.1441
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea13 7" parent="Impulses_A" instance=ExtResource( 11 )]
+
+transform/pos = Vector2( 57447.6, 4574.26 )
+transform/rot = -72.1441
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea12 6" parent="Impulses_A" instance=ExtResource( 11 )]
+
+transform/pos = Vector2( 28019.1, 14687.2 )
+transform/rot = -72.1441
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea127" parent="Impulses_A" instance=ExtResource( 11 )]
+
+transform/pos = Vector2( 69785.3, 9832.97 )
+transform/rot = -72.1441
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea6" parent="Impulses_A" instance=ExtResource( 11 )]
+
+transform/pos = Vector2( 31484.8, 2283.63 )
+transform/rot = -90.1617
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea13 6" parent="Impulses_A" instance=ExtResource( 11 )]
+
+transform/pos = Vector2( 73251, -2570.6 )
+transform/rot = -90.1617
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea12 5" parent="Impulses_A" instance=ExtResource( 11 )]
+
+transform/pos = Vector2( 43822.5, 7542.33 )
+transform/rot = -90.1617
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea126" parent="Impulses_A" instance=ExtResource( 11 )]
+
+transform/pos = Vector2( 85588.8, 2688.11 )
+transform/rot = -90.1617
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea7" parent="Impulses_A" instance=ExtResource( 11 )]
+
+transform/pos = Vector2( 24037.2, 12698.2 )
+transform/rot = -65.7677
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea13 10" parent="Impulses_A" instance=ExtResource( 11 )]
+
+transform/pos = Vector2( 65803.4, 7843.94 )
+transform/rot = -65.7677
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea12 9" parent="Impulses_A" instance=ExtResource( 11 )]
+
+transform/pos = Vector2( 36374.9, 17956.9 )
+transform/rot = -65.7677
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea1210" parent="Impulses_A" instance=ExtResource( 11 )]
+
+transform/pos = Vector2( 78141.2, 13102.6 )
+transform/rot = -65.7677
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea8" parent="Impulses_A" instance=ExtResource( 11 )]
+
+transform/pos = Vector2( 41959.9, 9428.49 )
+transform/rot = -65.7677
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea13 8" parent="Impulses_A" instance=ExtResource( 11 )]
+
+transform/pos = Vector2( 83726.1, 4574.26 )
+transform/rot = -65.7677
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea12 7" parent="Impulses_A" instance=ExtResource( 11 )]
+
+transform/pos = Vector2( 54297.6, 14687.2 )
+transform/rot = -65.7677
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea128" parent="Impulses_A" instance=ExtResource( 11 )]
+
+transform/pos = Vector2( 96063.9, 9832.97 )
+transform/rot = -65.7677
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea9" parent="Impulses_A" instance=ExtResource( 11 )]
+
+transform/pos = Vector2( 55523, 8217.5 )
+transform/rot = -65.7677
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea13 4" parent="Impulses_A" instance=ExtResource( 11 )]
+
+transform/pos = Vector2( 97289.2, 3363.27 )
+transform/rot = -65.7677
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea12 3" parent="Impulses_A" instance=ExtResource( 11 )]
+
+transform/pos = Vector2( 67860.7, 13476.2 )
+transform/rot = -65.7677
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea124" parent="Impulses_A" instance=ExtResource( 11 )]
+
+transform/pos = Vector2( 109627, 8621.97 )
+transform/rot = -65.7677
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea10" parent="Impulses_A" instance=ExtResource( 11 )]
+
+transform/pos = Vector2( 70236.5, 1738.69 )
+transform/rot = -89.8098
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea13 12" parent="Impulses_A" instance=ExtResource( 11 )]
+
+transform/pos = Vector2( 112003, -3115.54 )
+transform/rot = -89.8098
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea12 11" parent="Impulses_A" instance=ExtResource( 11 )]
+
+transform/pos = Vector2( 119689, 2143.2 )
+transform/rot = -89.8098
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea1212" parent="Impulses_A" instance=ExtResource( 11 )]
+
+transform/pos = Vector2( 161455, -2711.03 )
+transform/rot = -89.8098
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea11" parent="Impulses_A" instance=ExtResource( 11 )]
+
+transform/pos = Vector2( 108199, 1546.82 )
+transform/rot = -73.991
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea13 9" parent="Impulses_A" instance=ExtResource( 11 )]
+
+transform/pos = Vector2( 149965, -3307.41 )
+transform/rot = -73.991
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea12 8" parent="Impulses_A" instance=ExtResource( 11 )]
+
+transform/pos = Vector2( 120536, 6805.52 )
+transform/rot = -73.991
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea129" parent="Impulses_A" instance=ExtResource( 11 )]
+
+transform/pos = Vector2( 162303, 1951.3 )
+transform/rot = -73.991
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea1" parent="Impulses_A" instance=ExtResource( 11 )]
+
+transform/pos = Vector2( 57955.9, -1194.58 )
+transform/rot = -103.053
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea13 5" parent="Impulses_A" instance=ExtResource( 11 )]
+
+transform/pos = Vector2( 99722.2, -6048.8 )
+transform/rot = -103.053
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea12 4" parent="Impulses_A" instance=ExtResource( 11 )]
+
+transform/pos = Vector2( 70293.7, 4064.13 )
+transform/rot = -103.053
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea125" parent="Impulses_A" instance=ExtResource( 11 )]
+
+transform/pos = Vector2( 112060, -790.098 )
+transform/rot = -103.053
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea2" parent="Impulses_A" instance=ExtResource( 11 )]
+
+transform/pos = Vector2( 31644.3, 6726.5 )
+transform/rot = -72.1441
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea13 2" parent="Impulses_A" instance=ExtResource( 11 )]
+
+transform/pos = Vector2( 145313, 9962.59 )
+transform/rot = -72.1441
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea12 2" parent="Impulses_A" instance=ExtResource( 11 )]
+
+transform/pos = Vector2( 98490.5, 20176.6 )
+transform/rot = -72.1441
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea123" parent="Impulses_A" instance=ExtResource( 11 )]
+
+transform/pos = Vector2( 140257, 15322.4 )
+transform/rot = -72.1441
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea3" parent="Impulses_A" instance=ExtResource( 11 )]
+
+transform/pos = Vector2( 101775, 11103.3 )
+transform/rot = -72.1441
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea13 13" parent="Impulses_A" instance=ExtResource( 11 )]
+
+transform/pos = Vector2( 143541, 6249.09 )
+transform/rot = -72.1441
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea12 12" parent="Impulses_A" instance=ExtResource( 11 )]
+
+transform/pos = Vector2( 114112, 16362 )
+transform/rot = -72.1441
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea1213" parent="Impulses_A" instance=ExtResource( 11 )]
+
+transform/pos = Vector2( 155879, 11507.8 )
+transform/rot = -72.1441
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea4" parent="Impulses_A" instance=ExtResource( 11 )]
+
+transform/pos = Vector2( 114974, 8499.67 )
+transform/rot = -102.152
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea13 11" parent="Impulses_A" instance=ExtResource( 11 )]
+
+transform/pos = Vector2( 156741, 3645.45 )
+transform/rot = -102.152
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea12 10" parent="Impulses_A" instance=ExtResource( 11 )]
+
+transform/pos = Vector2( 127312, 13758.4 )
+transform/rot = -102.152
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
+
+[node name="ImpulseArea1211" parent="Impulses_A" instance=ExtResource( 11 )]
+
+transform/pos = Vector2( 169078, 8904.15 )
+transform/rot = -102.152
+transform/scale = Vector2( 1, 1 )
+IMPULSE_THROTTLE = 600
 
 

@@ -1,17 +1,16 @@
 [gd_scene load_steps=4 format=1]
 
 [ext_resource path="res://scripts/ImpulseArea.gd" type="Script" id=1]
-[ext_resource path="res://assets/graphics/sputnik.tex" type="Texture" id=2]
+[ext_resource path="res://assets/graphics/solar_wind.tex" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 22.7058, 32.5939 )
+extents = Vector2( 150.004, 271.344 )
 
 [node name="ImpulseArea" type="Area2D"]
 
 transform/pos = Vector2( 537, 431.749 )
-transform/rot = 30.0
 transform/scale = Vector2( 11.6419, 10.9598 )
 input/pickable = true
 shapes/0/shape = SubResource( 1 )
@@ -23,23 +22,6 @@ linear_damp = 0.1
 angular_damp = 1.0
 script/script = ExtResource( 1 )
 IMPULSE_THROTTLE = 5
-
-[node name="Polygon2D" type="Polygon2D" parent="."]
-
-transform/pos = Vector2( -12.5308, -10.2557 )
-transform/scale = Vector2( 0.742123, 0.776598 )
-polygon = Vector2Array( -18.7518, 18.6308, 18.8045, 18.0737, -0.481125, -20.9198 )
-uv = Vector2Array(  )
-color = Color( 0.290865, 0.208817, 0.628906, 1 )
-vertex_colors = ColorArray(  )
-offset = Vector2( 0, 0 )
-texture/texture = null
-texture/offset = Vector2( 0, 0 )
-texture/scale = Vector2( 1, 1 )
-texture/rotation = 0.0
-invert/enable = false
-invert/border = 100.0
-__meta__ = { "_edit_lock_":true }
 
 [node name="direction" type="CollisionShape2D" parent="."]
 
