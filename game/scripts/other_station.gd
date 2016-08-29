@@ -19,8 +19,10 @@ func _ready():
 	set_fixed_process(true)
 
 func _fixed_process(delta):
-	get_node("Sprite").rotate(rotation*delta)
-	get_node("OuterSprite").rotate(-rotation*delta)
+	if center_texture != null:
+		get_node("Sprite").rotate(rotation*delta)
+	if arm_texture != null:
+		get_node("OuterSprite").rotate(-rotation*delta)
 	
 func _ship_out(body):
 	if body.get_name() != 'ship':
