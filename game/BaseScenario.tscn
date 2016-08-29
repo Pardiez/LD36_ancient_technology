@@ -387,8 +387,6 @@ transform/scale = Vector2( 7.74697, 6.97956 )
 
 [node name="Impulses_A" type="Node2D" parent="."]
 
-editor/display_folded = true
-
 [node name="ImpulseArea" parent="Impulses_A" instance=ExtResource( 11 )]
 
 transform/pos = Vector2( 9202.52, 6945.95 )

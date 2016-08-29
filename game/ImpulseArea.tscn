@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=7 format=1]
 
 [ext_resource path="res://scripts/ImpulseArea.gd" type="Script" id=1]
 [ext_resource path="res://assets/graphics/solar_wind.tex" type="Texture" id=2]
@@ -7,6 +7,28 @@
 
 custom_solver_bias = 0.0
 extents = Vector2( 150.004, 271.344 )
+
+[sub_resource type="CanvasItemShader" id=2]
+
+_code = { "fragment":"uniform float fattyness=1.0;\n\nvec2 ruv=(UV-vec2(0.5,0.5));\nfloat len = length(ruv);\nvec2 dir = normalize(ruv);\nlen=pow(len*2.0,fattyness)*0.5;\nruv=len*dir;\nvec4 col = tex(TEXTURE,ruv+vec2(0.5,0.5));\nCOLOR=col;", "fragment_ofs":0, "light":"", "light_ofs":0, "vertex":"", "vertex_ofs":0 }
+
+[sub_resource type="CanvasItemMaterial" id=3]
+
+shader/shader = SubResource( 2 )
+shader/shading_mode = 0
+shader_param/fattyness = 1.0
+
+[sub_resource type="Animation" id=4]
+
+resource/name = "enter"
+length = 2.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:material/material:shader_param/fattyness")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.2, 0.4, 1.1, 1.2, 1.3 ), "transitions":FloatArray( 1, 1, 1, 1, 1, 1 ), "update":0, "values":[ 1.0, 0.8, 2.0, 0.9, 1.1, 1.0 ] }
 
 [node name="ImpulseArea" type="Area2D"]
 
@@ -32,6 +54,18 @@ __meta__ = { "_edit_lock_":true }
 
 [node name="Sprite" type="Sprite" parent="."]
 
+material/material = SubResource( 3 )
 texture = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/enter = SubResource( 4 )
+playback/active = true
+playback/speed = 2.0
+blend_times = [  ]
+autoplay = ""
 
 
