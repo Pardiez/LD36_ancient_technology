@@ -1,9 +1,6 @@
 extends Label
 
-var messages = ["Ground Control to Major Tom",
-"Take your protein pills and put your helmet on",
-"Now it's time to leave the capsule if you dare",
-"And I'm floating in a most peculiar way"]
+var messages = [tr("CH1"), tr("CH2")]
 
 var next_message = 0
 onready var timer = get_node("Timer")
